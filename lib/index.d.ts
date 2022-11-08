@@ -1,11 +1,11 @@
 import { Scenes, MiddlewareObj, Context } from 'telegraf';
-import MyWizardContextWizard, { MyWizardSessionData } from './context';
+import { BetterWizardSessionData, BetterWizardContextWizard } from './context';
 import { SceneOptions } from 'telegraf/typings/scenes/base';
 import BaseScene = Scenes.BaseScene;
 import SceneContextScene = Scenes.SceneContextScene;
-export declare class MyWizardScene<C extends Context & {
-    scene: SceneContextScene<C, MyWizardSessionData>;
-    wizard: MyWizardContextWizard<C>;
+export declare class BetterWizardScene<C extends Context & {
+    scene: SceneContextScene<C, BetterWizardSessionData>;
+    wizard: BetterWizardContextWizard<C>;
 }> extends BaseScene<C> implements MiddlewareObj<C> {
     steps: Array<BaseScene<C>>;
     constructor(id: string, ...steps: Array<BaseScene<C>>);

@@ -2,11 +2,15 @@
   "name": "telegraf-better-wizard",
   "version": "1.0.0",
   "description": "Better WizardScene for Telegraf.js",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc"
   },
-  "keywords": ["telegraf", "scenes", "wizard"],
+  "keywords": [
+    "telegraf",
+    "scenes",
+    "wizard"
+  ],
   "author": "newTomas",
   "license": "ISC",
   "repository": {
@@ -18,6 +22,8 @@
   },
   "homepage": "https://github.com/newTomas/telegraf-better-wizard#readme",
   "devDependencies": {
+    "@types/node": "^18.11.9",
+    "telegraf-session-local": "^2.1.0",
     "typescript": "^4.8.4"
   },
   "dependencies": {

@@ -1,14 +1,14 @@
 import { Scenes, Middleware, MiddlewareObj, Composer, Context } from 'telegraf';
-import MyWizardContextWizard, { MyWizardSessionData } from './context';
+import { BetterWizardSessionData, BetterWizardContextWizard } from './context';
 import { SceneOptions } from 'telegraf/typings/scenes/base';
 
 import BaseScene = Scenes.BaseScene;
 import SceneContextScene = Scenes.SceneContextScene;
 
-export class MyWizardScene<
+export class BetterWizardScene<
   C extends Context & {
-    scene: SceneContextScene<C, MyWizardSessionData>
-    wizard: MyWizardContextWizard<C>
+    scene: SceneContextScene<C, BetterWizardSessionData>
+    wizard: BetterWizardContextWizard<C>
   }
 >
   extends BaseScene<C>
@@ -43,7 +43,7 @@ export class MyWizardScene<
   middleware() {
     return Composer.compose<C>([
       (ctx, next) => {
-        ctx.wizard = new MyWizardContextWizard<C>(ctx, this.steps);
+        ctx.wizard = new BetterWizardContextWizard<C>(ctx, this.steps);
         return next();
       },
       super.middleware(),
@@ -62,7 +62,7 @@ export class MyWizardScene<
     return Composer.compose<C>([
       this.enterHandler,
       (ctx, next) => {
-        ctx.wizard = new MyWizardContextWizard<C>(ctx, this.steps);
+        ctx.wizard = new BetterWizardContextWizard<C>(ctx, this.steps);
         const handler =
           'enterMiddleware' in ctx.wizard.step &&
             typeof ctx.wizard.step.enterMiddleware === 'function'

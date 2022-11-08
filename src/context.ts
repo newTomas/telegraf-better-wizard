@@ -8,23 +8,23 @@ import SceneSessionData = Scenes.SceneSessionData;
 
 const noop = () => Promise.resolve();
 
-export interface MyWizardContext<D extends MyWizardSessionData = MyWizardSessionData, D1 extends MyWizardSession<D> = MyWizardSession<D>>
+export interface BetterWizardContext<D extends BetterWizardSessionData = BetterWizardSessionData, D1 extends BetterWizardSession<D> = BetterWizardSession<D>>
   extends Context {
   session: D1;
-  scene: SceneContextScene<MyWizardContext<D>, D>
-  wizard: MyWizardContextWizard<MyWizardContext<D>>;
+  scene: SceneContextScene<BetterWizardContext<D>, D>
+  wizard: BetterWizardContextWizard<BetterWizardContext<D>>;
 }
 
-export interface MyWizardSessionData extends SceneSessionData {
+export interface BetterWizardSessionData extends SceneSessionData {
   cursor: number;
 }
 
-export interface MyWizardSession<S extends MyWizardSessionData = MyWizardSessionData>
+export interface BetterWizardSession<S extends BetterWizardSessionData = BetterWizardSessionData>
   extends SceneSession<S> { }
 
-export default class MyWizardContextWizard<
-  C extends SessionContext<MyWizardSession> & {
-    scene: SceneContextScene<C, MyWizardSessionData>
+export class BetterWizardContextWizard<
+  C extends SessionContext<BetterWizardSession> & {
+    scene: SceneContextScene<C, BetterWizardSessionData>
   }
 > {
   readonly state: object;
@@ -53,7 +53,7 @@ export default class MyWizardContextWizard<
     let current = this.steps[this.cursor];
     if (current === undefined) {
       this.cursor = 0;
-      throw new Error("End of myWizard");
+      throw new Error("End of BetterWizardScene");
     }
     const handler =
       'enterMiddleware' in current &&

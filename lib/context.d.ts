@@ -4,18 +4,18 @@ import BaseScene = Scenes.BaseScene;
 import SceneContextScene = Scenes.SceneContextScene;
 import SceneSession = Scenes.SceneSession;
 import SceneSessionData = Scenes.SceneSessionData;
-export interface MyWizardContext<D extends MyWizardSessionData = MyWizardSessionData, D1 extends MyWizardSession<D> = MyWizardSession<D>> extends Context {
+export interface BetterWizardContext<D extends BetterWizardSessionData = BetterWizardSessionData, D1 extends BetterWizardSession<D> = BetterWizardSession<D>> extends Context {
     session: D1;
-    scene: SceneContextScene<MyWizardContext<D>, D>;
-    wizard: MyWizardContextWizard<MyWizardContext<D>>;
+    scene: SceneContextScene<BetterWizardContext<D>, D>;
+    wizard: BetterWizardContextWizard<BetterWizardContext<D>>;
 }
-export interface MyWizardSessionData extends SceneSessionData {
+export interface BetterWizardSessionData extends SceneSessionData {
     cursor: number;
 }
-export interface MyWizardSession<S extends MyWizardSessionData = MyWizardSessionData> extends SceneSession<S> {
+export interface BetterWizardSession<S extends BetterWizardSessionData = BetterWizardSessionData> extends SceneSession<S> {
 }
-export default class MyWizardContextWizard<C extends SessionContext<MyWizardSession> & {
-    scene: SceneContextScene<C, MyWizardSessionData>;
+export declare class BetterWizardContextWizard<C extends SessionContext<BetterWizardSession> & {
+    scene: SceneContextScene<C, BetterWizardSessionData>;
 }> {
     private readonly ctx;
     private readonly steps;
