@@ -6,8 +6,8 @@ import registration from "./registration";
 if (!process.env.BOT_TOKEN) throw new Error("ENV: No BOT_TOKEN");
 
 const localSession = new LocalSession<Session<SessionData>>({
-  database: "sessions.json",
-  storage: LocalSession.storageFileSync
+	database: "sessions.json",
+	storage: LocalSession.storageFileSync
 });
 
 const bot = new Telegraf<MyContext>(process.env.BOT_TOKEN);

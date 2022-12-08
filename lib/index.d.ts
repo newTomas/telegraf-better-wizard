@@ -1,6 +1,7 @@
 import { Scenes, MiddlewareObj, Context } from 'telegraf';
 import { BetterWizardSessionData, BetterWizardContextWizard } from './context';
 import { SceneOptions } from 'telegraf/typings/scenes/base';
+export { BetterWizardContext, BetterWizardContextWizard, BetterWizardSession, BetterWizardSessionData } from "./context";
 import BaseScene = Scenes.BaseScene;
 import SceneContextScene = Scenes.SceneContextScene;
 export declare class BetterWizardScene<C extends Context & {
